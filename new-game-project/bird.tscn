@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dxjh4c8f6sey7"]
+
+[ext_resource type="Script" uid="uid://c5ktrp0ufig2h" path="res://bird.gd" id="1_g5k2s"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fj7yv"]
+radius = 0.1
+height = 0.4
+
+[node name="Bird" type="Node3D" unique_id=1599634939]
+script = ExtResource("1_g5k2s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1012657224]
+mesh = SubResource("CapsuleMesh_fj7yv")
