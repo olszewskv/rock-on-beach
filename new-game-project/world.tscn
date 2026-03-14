@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5nekpnap6axu" path="res://world.gd" id="1_fj7yv"]
 [ext_resource type="Shader" uid="uid://b14e17eovppwr" path="res://world.gdshader" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://cwljhan84q1kn" path="res://directional_light_3d.gd" id="2_tlwt5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
 
@@ -11,6 +12,9 @@ sky_material = SubResource("ProceduralSkyMaterial_gv5m4")
 [sub_resource type="Environment" id="Environment_fj7yv"]
 background_mode = 2
 sky = SubResource("Sky_f3sb7")
+ambient_light_source = 2
+ambient_light_color = Color(0.05882353, 0.078431375, 0.15686275, 1)
+ambient_light_energy = 0.3
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tlwt5"]
 size = Vector2(100, 100)
@@ -48,6 +52,7 @@ script = ExtResource("1_fj7yv")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=886689225]
 transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 0, 0, 0)
 shadow_enabled = true
+script = ExtResource("2_tlwt5")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1247218516]
 environment = SubResource("Environment_fj7yv")
