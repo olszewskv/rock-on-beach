@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cl5eaekxll7ek"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uc1xx"]
+top_radius = 0.15
+bottom_radius = 0.2
+height = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brfkd"]
+albedo_color = Color(0.39607844, 0.2627451, 0.12941177, 1)
+roughness = 0.9
+
+[sub_resource type="SphereMesh" id="SphereMesh_nnvrw"]
+radius = 1.2
+height = 2.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvmkm"]
+albedo_color = Color(0.13333334, 0.33333334, 0.13333334, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uc1xx"]
+albedo_color = Color(0.35686275, 0.47058824, 0.11764706, 1)
+billboard_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d2g23"]
+emission_shape = 1
+emission_sphere_radius = 1.2
+initial_velocity_min = 0.5
+initial_velocity_max = 1.5
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
+gravity = Vector3(0, -2, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+
+[sub_resource type="QuadMesh" id="QuadMesh_brfkd"]
+size = Vector2(0.15, 0.15)
+
+[node name="Tree" type="Node3D" unique_id=1023407396]
+
+[node name="Trunk" type="MeshInstance3D" parent="." unique_id=1764137058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("CylinderMesh_uc1xx")
+surface_material_override/0 = SubResource("StandardMaterial3D_brfkd")
+
+[node name="Crown" type="MeshInstance3D" parent="." unique_id=1259616590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+mesh = SubResource("SphereMesh_nnvrw")
+surface_material_override/0 = SubResource("StandardMaterial3D_gvmkm")
+
+[node name="Leaves" type="GPUParticles3D" parent="." unique_id=867124764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_uc1xx")
+amount = 40
+lifetime = 4.0
+preprocess = 2.0
+process_material = SubResource("ParticleProcessMaterial_d2g23")
+draw_pass_1 = SubResource("QuadMesh_brfkd")
