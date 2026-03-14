@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://d0lryi26yd36c"]
+
+[ext_resource type="Script" uid="uid://bs5fx0qc7sji8" path="res://ship.gd" id="1_l3rv8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4cq66"]
+size = Vector3(3, 0.8, 1.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4325"]
+albedo_color = Color(0.15686275, 0.15686275, 0.19607843, 1)
+roughness = 0.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_c3vuw"]
+top_radius = 0.05
+bottom_radius = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78o8j"]
+albedo_color = Color(0.39607844, 0.2627451, 0.12941177, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_xpsff"]
+size = Vector3(1.2, 1.4, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb2vj"]
+albedo_color = Color(0.8627451, 0.8235294, 0.74509805, 1)
+roughness = 0.95
+
+[node name="Ship" type="Node3D" unique_id=1313425304]
+script = ExtResource("1_l3rv8")
+
+[node name="Hull" type="MeshInstance3D" parent="." unique_id=401573988]
+mesh = SubResource("BoxMesh_4cq66")
+surface_material_override/0 = SubResource("StandardMaterial3D_v4325")
+
+[node name="mast" type="MeshInstance3D" parent="." unique_id=1744314953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+mesh = SubResource("CylinderMesh_c3vuw")
+surface_material_override/0 = SubResource("StandardMaterial3D_78o8j")
+
+[node name="Sail" type="MeshInstance3D" parent="." unique_id=1275620898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+mesh = SubResource("BoxMesh_xpsff")
+surface_material_override/0 = SubResource("StandardMaterial3D_pb2vj")
