@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ckavqb25bdaul"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
+
+[sub_resource type="Sky" id="Sky_f3sb7"]
+sky_material = SubResource("ProceduralSkyMaterial_gv5m4")
+
+[sub_resource type="Environment" id="Environment_fj7yv"]
+background_mode = 2
+sky = SubResource("Sky_f3sb7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tlwt5"]
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
+size = Vector3(100, 0.1, 100)
+
+[sub_resource type="SphereMesh" id="SphereMesh_036b0"]
+
+[node name="World" type="Node3D" unique_id=839943923]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=886689225]
+transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1247218516]
+environment = SubResource("Environment_fj7yv")
+
+[node name="Terrain" type="MeshInstance3D" parent="." unique_id=1679490079]
+mesh = SubResource("PlaneMesh_tlwt5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain" unique_id=1679747724]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D" unique_id=841040069]
+shape = SubResource("BoxShape3D_aqk2v")
+
+[node name="Rock" type="MeshInstance3D" parent="." unique_id=652514873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("SphereMesh_036b0")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1175985114]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 2, 4)
