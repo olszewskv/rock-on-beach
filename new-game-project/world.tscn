@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c5nekpnap6axu" path="res://world.gd" id="1_fj7yv"]
 [ext_resource type="Shader" uid="uid://b14e17eovppwr" path="res://world.gdshader" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://cwljhan84q1kn" path="res://directional_light_3d.gd" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://di2edbegx30ek" path="res://rock.glb" id="4_aqk2v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
 
@@ -25,12 +26,6 @@ roughness = 0.9
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
 size = Vector3(100, 0.1, 100)
-
-[sub_resource type="SphereMesh" id="SphereMesh_036b0"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3sb7"]
-albedo_color = Color(0.43137255, 0.4117647, 0.39215687, 1)
-roughness = 0.8
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_aqk2v"]
 size = Vector2(200, 200)
@@ -67,11 +62,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gv5m4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D" unique_id=841040069]
 shape = SubResource("BoxShape3D_aqk2v")
 
-[node name="Rock" type="MeshInstance3D" parent="." unique_id=652514873]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("SphereMesh_036b0")
-surface_material_override/0 = SubResource("StandardMaterial3D_f3sb7")
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1175985114]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 2, 4)
 
@@ -79,3 +69,6 @@ transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.965
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, -80)
 mesh = SubResource("PlaneMesh_aqk2v")
 surface_material_override/0 = SubResource("ShaderMaterial_036b0")
+
+[node name="Rock" parent="." unique_id=1149082828 instance=ExtResource("4_aqk2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)

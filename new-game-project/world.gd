@@ -1,8 +1,8 @@
 extends Node3D
 
 @export var bird_count: int = 6
-@export var tree_count: int = 5
-@export var ship_count: int = 4
+@export var tree_count: int = 15
+@export var ship_count: int = 9
 
 var bird_scene = preload("res://bird.tscn")
 var tree_scene = preload("res://tree.tscn")
